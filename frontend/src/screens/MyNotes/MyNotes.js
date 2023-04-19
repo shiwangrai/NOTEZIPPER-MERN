@@ -16,10 +16,13 @@ const MyNotes = () => {
     const {data} =await axios.get('/api/notes')
     setNotes(data);
    };
+
    console.log(notes);
+
   useEffect(()=>{
     fetchNotes();
   },[])
+  
   return (
     <MainScreen title="Welcome Back Shiwang Rai..">
       <Link to="createnote">

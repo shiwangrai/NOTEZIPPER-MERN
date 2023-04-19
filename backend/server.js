@@ -1,9 +1,18 @@
 const express=require("express");
 const notes=require("./data/notes");
-const dotenv=require('dotenv')
+const dotenv=require('dotenv');
+const mongoose = require('mongoose');
+//const connectDB = require("./config/db");
 
 const app=express();
 dotenv.config();
+mongoose.connect(process.env.MONGO_URI,{
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+
+    }).then(()=>console.log("Jai Shree Ram Connected to MongoDB "))
+   .catch((err)=>console.error(err))
+//connectDB();
 
 app.get("/",(req,res)=>{
     res.send("API  is running..")
